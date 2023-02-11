@@ -1,7 +1,17 @@
-const inputE1 = document.querySelector("input#name-input");
-const outputE1 = document.querySelector("span#name-output");
+const decrementBtn = document.querySelector("[data-action=decrement]");
+const incrementBtn = document.querySelector("[data-action=increment]");
+const valueEl = document.querySelector("#value");
 
-inputE1.addEventListener("input", (event) => {
-    outputE1.textContent = event.currentTarget.value;
-    if (inputE1.value === "") outputE1.textContent = `Anonymous`;
+let counterValue = 0;
+
+
+decrementBtn.addEventListener("click", () => {
+  counterValue -= 1;
+  valueEl.textContent = counterValue;
+});
+
+
+incrementBtn.addEventListener("click", () => {
+  counterValue += 1;
+  valueEl.textContent = counterValue;
 });
