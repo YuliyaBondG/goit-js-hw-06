@@ -13,16 +13,10 @@ const images = [
   },
 ];
 
-const galleryListEl = document.querySelector(".gallery");
-const galleryItemEl = document.querySelector("li");
-galleryListEl.style.display = "flex";
-galleryListEl.style.justifyContent = "space-between";
+const list = document.querySelector('.gallery')
 
-const TotalGalleryListEl = [];
+const markup = images
+	.map(image => `<li><img class="picture" src=${image.url} width = '400' alt='${image.alt}'></img></li>`)
+	.join('')
 
-images.forEach((item) => {
-  const itemEl = `<li><img class='gallery__img' src='${item.url}' alt='${item.alt}' width='300'/></li>`;
-  TotalGalleryListEl.push(itemEl);
-});
-
-galleryListEl.insertAdjacentHTML("afterbegin", TotalGalleryListEl);
+  list.insertAdjacentHTML('beforeend', markup)
